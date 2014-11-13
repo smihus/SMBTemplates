@@ -1,46 +1,17 @@
-object fmSMBBaseForm: TfmSMBBaseForm
+object SMBBaseForm: TSMBBaseForm
   Left = 0
   Top = 0
-  BiDiMode = bdLeftToRight
-  Caption = 'fmSMBBaseForm'
-  ClientHeight = 262
-  ClientWidth = 384
+  Caption = 'SMBBaseForm'
+  ClientHeight = 282
+  ClientWidth = 418
   Color = clBtnFace
-  Constraints.MinHeight = 70
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  ParentBiDiMode = False
-  Position = poOwnerFormCenter
+  Position = poMainFormCenter
   PixelsPerInch = 96
   TextHeight = 13
-  object pnBottomButtons: TPanel
-    Left = 0
-    Top = 232
-    Width = 384
-    Height = 30
-    Align = alBottom
-    BevelOuter = bvNone
-    Padding.Left = 1
-    Padding.Top = 1
-    Padding.Right = 1
-    Padding.Bottom = 1
-    TabOrder = 0
-    ExplicitTop = 252
-    ExplicitWidth = 418
-    object bnClose: TButton
-      Left = 303
-      Top = 1
-      Width = 80
-      Height = 28
-      Align = alRight
-      Caption = #1047#1072#1082#1088#1090#1099#1090#1100
-      TabOrder = 0
-      OnClick = bnCloseClick
-      ExplicitLeft = 336
-    end
-  end
 end
