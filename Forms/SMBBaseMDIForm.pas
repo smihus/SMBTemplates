@@ -7,7 +7,7 @@ uses
   System.Actions, Vcl.ActnList, System.Classes, SMBBaseForm;
 
 type
-  TBaseMDIForm = class abstract(TSMBBaseForm)
+  TBaseMDIForm = class (TSMBBaseForm)
     mmMenu: TMainMenu;
     N1: TMenuItem;
     N2: TMenuItem;
