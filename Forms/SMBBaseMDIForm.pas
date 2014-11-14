@@ -3,12 +3,11 @@ unit SMBBaseMDIForm;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, SMBBaseForm, Vcl.Menus, System.Actions,
-  Vcl.ActnList, SMBFormFactory;
+  System.SysUtils, Vcl.Forms, SMBFormFactory, Vcl.Menus,
+  System.Actions, Vcl.ActnList, System.Classes, SMBBaseForm;
 
 type
-  TBaseMDIForm = class(TSMBBaseForm)
+  TBaseMDIForm = class abstract(TSMBBaseForm)
     mmMenu: TMainMenu;
     N1: TMenuItem;
     N2: TMenuItem;
