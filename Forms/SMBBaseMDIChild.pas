@@ -1,4 +1,4 @@
-unit SMBBaseDialogForm;
+unit SMBBaseMDIChild;
 
 interface
 
@@ -7,10 +7,13 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, SMBBaseForm, Vcl.StdCtrls, Vcl.ExtCtrls;
 
 type
-  TSMBBaseDialogForm = class(TSMBBaseForm)
+  TSMBBaseMDIChildClass = class of TSMBBaseMDIChild;
+
+  TSMBBaseMDIChild = class(TSMBBaseForm)
     plBottomButtons: TPanel;
     bnClose: TButton;
     procedure bnCloseClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -21,10 +24,16 @@ implementation
 
 {$R *.dfm}
 
-procedure TSMBBaseDialogForm.bnCloseClick(Sender: TObject);
+procedure TSMBBaseMDIChild.bnCloseClick(Sender: TObject);
 begin
   inherited;
   Close;
+end;
+
+procedure TSMBBaseMDIChild.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  inherited;
+  Action := caFree;
 end;
 
 end.

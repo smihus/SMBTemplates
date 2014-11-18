@@ -3,24 +3,17 @@ unit SMBBaseMDIForm;
 interface
 
 uses
-  System.SysUtils, Vcl.Forms, SMBFormFactory, Vcl.Menus,
-  System.Actions, Vcl.ActnList, System.Classes, SMBBaseForm;
+  SMBFormManager, SMBBaseForm, Vcl.Menus, System.Classes;
 
 type
   TBaseMDIForm = class (TSMBBaseForm)
     mmMenu: TMainMenu;
-    N1: TMenuItem;
-    N2: TMenuItem;
-    N3: TMenuItem;
-    alMain: TActionList;
+    procedure FormShow(Sender: TObject);
   private
-    FFormFactory: TSMBFormFactory;
-  protected
-    function CreateFormFactory(): TSMBFormFactory; virtual; abstract;
-    procedure CreateAndShowMDIChild(aName: String);
+    FFormManager: TSMBFormManager;
+    procedure SetFormManager(const Value: TSMBFormManager);
   public
-    constructor Create(AOwner: TComponent); override;
-    destructor Destroy; override;
+    property FormManager: TSMBFormManager read FFormManager write SetFormManager;
   end;
 
 implementation
@@ -29,24 +22,15 @@ implementation
 
 { TBaseMDIForm }
 
-constructor TBaseMDIForm.Create(AOwner: TComponent);
+procedure TBaseMDIForm.FormShow(Sender: TObject);
 begin
   inherited;
-  FFormFactory := CreateFormFactory;
+  FFormManager.AppendTo(mmMenu);
 end;
 
-procedure TBaseMDIForm.CreateAndShowMDIChild(aName: String);
-var
-  Form: TForm;
+procedure TBaseMDIForm.SetFormManager(const Value: TSMBFormManager);
 begin
-  Form := FFormFactory.createForm(aName, Self);
-  Form.Show;
-end;
-
-destructor TBaseMDIForm.Destroy;
-begin
-  FreeAndNil(FFormFactory);
-  inherited;
+  FFormManager := Value;
 end;
 
 end.
