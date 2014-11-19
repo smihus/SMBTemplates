@@ -10,10 +10,9 @@ type
     mmMenu: TMainMenu;
     procedure FormShow(Sender: TObject);
   private
-    FFormManager: TSMBFormManager;
-    procedure SetFormManager(const Value: TSMBFormManager);
+    FFormManager: IFormManager;
   public
-    property FormManager: TSMBFormManager read FFormManager write SetFormManager;
+    procedure SetFormManager(const Value: IFormManager);
   end;
 
 implementation
@@ -28,7 +27,7 @@ begin
   FFormManager.AppendTo(mmMenu);
 end;
 
-procedure TBaseMDIForm.SetFormManager(const Value: TSMBFormManager);
+procedure TBaseMDIForm.SetFormManager(const Value: IFormManager);
 begin
   FFormManager := Value;
 end;
