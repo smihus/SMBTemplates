@@ -1,10 +1,10 @@
 inherited SMBBaseMDIChild: TSMBBaseMDIChild
   Caption = 'SMBBaseMDIChild'
   FormStyle = fsMDIChild
+  KeyPreview = True
   Visible = True
   OnClose = FormClose
-  ExplicitWidth = 434
-  ExplicitHeight = 320
+  OnKeyDown = FormKeyDown
   PixelsPerInch = 96
   TextHeight = 13
   object plBottomButtons: TPanel
