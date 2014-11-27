@@ -1,5 +1,6 @@
 inherited SMBBaseMDIChild: TSMBBaseMDIChild
   Caption = 'SMBBaseMDIChild'
+  ClientHeight = 242
   FormStyle = fsMDIChild
   KeyPreview = True
   Menu = mmBase
@@ -7,12 +8,12 @@ inherited SMBBaseMDIChild: TSMBBaseMDIChild
   OnClose = FormClose
   OnKeyDown = FormKeyDown
   ExplicitWidth = 434
-  ExplicitHeight = 340
+  ExplicitHeight = 300
   PixelsPerInch = 96
   TextHeight = 13
   object plBottomButtons: TPanel
     Left = 0
-    Top = 255
+    Top = 215
     Width = 418
     Height = 27
     Align = alBottom
@@ -52,6 +53,7 @@ inherited SMBBaseMDIChild: TSMBBaseMDIChild
     end
     object aUpdate: TAction
       Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
+      Enabled = False
       ShortCut = 16467
       OnExecute = aUpdateExecute
     end
@@ -62,6 +64,7 @@ inherited SMBBaseMDIChild: TSMBBaseMDIChild
     end
   end
   object mmBase: TMainMenu
+    AutoMerge = True
     Left = 72
     Top = 8
     object mmnActions: TMenuItem

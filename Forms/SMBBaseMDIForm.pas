@@ -3,11 +3,25 @@ unit SMBBaseMDIForm;
 interface
 
 uses
-  SMBFormManager, SMBBaseForm, Vcl.Menus, System.Classes;
+  SMBFormManager, SMBBaseForm, Vcl.Menus, System.Classes, System.Actions,
+  Vcl.ActnList, Vcl.StdActns;
 
 type
   TBaseMDIForm = class (TSMBBaseForm)
-    mmMenu: TMainMenu;
+    mmBase: TMainMenu;
+    alBase: TActionList;
+    aWindowClose: TWindowClose;
+    aWindowCascade: TWindowCascade;
+    aWindowTileHorizontal: TWindowTileHorizontal;
+    aWindowTileVertical: TWindowTileVertical;
+    aWindowMinimizeAll: TWindowMinimizeAll;
+    N1: TMenuItem;
+    N2: TMenuItem;
+    N3: TMenuItem;
+    N5: TMenuItem;
+    N6: TMenuItem;
+    N7: TMenuItem;
+    N8: TMenuItem;
     procedure FormShow(Sender: TObject);
   private
     FFormManager: IFormManager;
@@ -49,12 +63,13 @@ end;
 procedure TBaseMDIForm.FormShow(Sender: TObject);
 begin
   inherited;
-  FFormManager.AppendTo(mmMenu);
+  FFormManager.AppendTo(mmBase);
 end;
 
 procedure TBaseMDIForm.SetFormManager(const Value: IFormManager);
 begin
   FFormManager := Value;
+  FFormManager.SetOwner(Self);
 end;
 
 end.
